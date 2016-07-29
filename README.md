@@ -1,6 +1,6 @@
 # object-property-names
 
-Get the property names (enumerable or not) through the prototype chain of the given object.
+Get any property names (enumerable or not) you need from a JavaScript object.
 
 ## Description
 
