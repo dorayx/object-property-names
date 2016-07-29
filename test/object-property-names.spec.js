@@ -2,7 +2,7 @@ import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 import chai from 'chai'
 const { expect } = chai
-import { getPropertyNamesByRules, getAllPropertyNames, getNonNativePropertyNames } from '../lib/object-property-names'
+import { getPropertyNamesByRules, getAllPropertyNames, getNonNativePropertyNames } from '../src/object-property-names'
 
 chai.use(sinonChai)
 

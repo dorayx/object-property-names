@@ -1,5 +1,5 @@
-import { getTypeOf } from './get-type-of'
-import { mergeObject } from './merge-object'
+import { getTypeOf } from '../lib/get-type-of'
+import { mergeObject } from '../lib/merge-object'
 
 const ignoredProperties = [
   /^_+/,

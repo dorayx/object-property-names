@@ -12,9 +12,9 @@
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --recursive",
     "test-cov": "babel-node isparta cover --report html --report text node_modules/.bin/_mocha",
-    "build": "babel lib --out-dir build",
+    "build": "babel src lib --out-dir build",
     "clean": "rm -rf build",
-    "lint": "eslint lib test"
+    "lint": "eslint src lib test"
   },
   "dependencies": {},
   "devDependencies": {
