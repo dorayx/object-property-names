@@ -20,6 +20,10 @@ const ignoredTypes = [
   'WeakSet'
 ]
 
+function includes (array, target) {
+  return array && array.indexOf(target) !== -1
+}
+
 function applyRules (rules, value, context) {
   const type = getTypeOf(rules)
 
@@ -53,7 +57,7 @@ function getPropertyNames (object, rules, context) {
   const protoProperties = getPropertyNames(prototype, rules, context)
 
   return [...ownProperties, ...protoProperties].reduce((unique, name) => {
-    const skip = unique.includes(name) || shouldIgnore(name, rules.ignoredProperties, context)
+    const skip = includes(unique, name) || shouldIgnore(name, rules.ignoredProperties, context)
     return unique.concat(skip ? [] : name)
   }, [])
 }
