@@ -8,6 +8,12 @@ Get any property names (enumerable or not) you need from a JavaScript object.
 
 The properties will be found upon the object through its prototype chain to the top. During the prototype chain lookup, two rules, the type rule and the property rule, can be applied to ignore the specific types and properties.
 
+## Features
+
+- Tiny and No dependence
+- Flexible control
+- Support ES2015 Module and UMD
+
 ## Type Rule & Property Rule
 
 The **Type Rule** is a list of the types to be ignored and the properties of those ignored types won't be returned. Please note that the type rule only applies to the prototype but not to the given object.
@@ -18,7 +24,7 @@ The **Property Rule** is the list of the properties to be ignored.
 
 Those properties may be private, context-irrelative or non-enumerable. By default the property name prefixed with `_` will be regarded private and so ignored. The `contructor` property is also ignored.
 
-## API & Usage
+## API
 
 ### `getPropertyNamesByRules(object[, rules])`
 
@@ -89,6 +95,52 @@ This function returns the non-native property names.
 > getNonNativePropertyNames(object)
 > ['a']
 ```
+
+## Usage
+
+### ES2015 Module
+
+*path: object-property-names/build/index.es.js*
+
+```
+import {
+	getPropertyNamesByRules,
+	getAllPropertyNames,
+	getNonNativePropertyNames
+} from 'object-property-names'
+```
+
+### **UMD**
+
+*path: object-property-names/build/index.umd.js*
+
+#### UMD: CommonJS
+
+```
+var ObjectPropertyNames = require('object-property-names')
+var getPropertyNamesByRules = ObjectPropertyNames. getPropertyNamesByRules
+var getAllPropertyNames = ObjectPropertyNames. getAllPropertyNames
+var getNonNativePropertyNames = ObjectPropertyNames. getNonNativePropertyNames
+```
+
+#### UMD: AMD
+
+```
+require(['ObjectPropertyNames'], function(ObjectPropertyNames) {
+  var getPropertyNamesByRules = ObjectPropertyNames. getPropertyNamesByRules
+  var getAllPropertyNames = ObjectPropertyNames. getAllPropertyNames
+  var getNonNativePropertyNames = ObjectPropertyNames. getNonNativePropertyNames
+})
+```
+
+#### UMD: Browser Globals
+
+```
+var getPropertyNamesByRules = window.ObjectPropertyNames. getPropertyNamesByRules
+var getAllPropertyNames = window.ObjectPropertyNames. getAllPropertyNames
+var getNonNativePropertyNames = window.ObjectPropertyNames. getNonNativePropertyNames
+```
+
 
 ## License
 
