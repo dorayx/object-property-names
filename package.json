@@ -3,7 +3,7 @@
   "author": "Doray Hong",
   "version": "0.1.1",
   "description": "Get any property names you need from a JavaScript object.",
-  "main": "build/index.js",
+  "main": "build/src/object-property-names.js",
   "keywords": [
     "javascript",
     "property names",
@@ -12,7 +12,7 @@
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --recursive",
     "test-cov": "babel-node isparta cover --report html --report text node_modules/.bin/_mocha",
-    "build": "babel src lib --out-dir build",
+    "build": "babel src --out-dir build/src && babel lib --out-dir build/lib",
     "clean": "rm -rf build",
     "lint": "eslint src lib test"
   },
