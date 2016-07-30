@@ -1,7 +1,7 @@
 {
   "name": "object-property-names",
   "author": "Doray Hong",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "description": "Get any property names you need from a JavaScript object.",
   "main": "build/src/object-property-names.js",
   "keywords": [
