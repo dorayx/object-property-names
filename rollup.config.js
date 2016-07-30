@@ -5,13 +5,9 @@ export default {
   moduleName: 'ObjectPropertyNames',
   moduleId: 'ObjectPropertyNames',
   plugins: [
-    babel({
-      presets: 'es2015-rollup',
-      babelrc: false
-    })
+    babel()
   ],
   targets: [
-    { dest: 'build/index.cjs.js', format: 'cjs' },
     { dest: 'build/index.es.js', format: 'es' },
     { dest: 'build/index.umd.js', format: 'umd' }
   ]
