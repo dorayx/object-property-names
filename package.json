@@ -1,7 +1,7 @@
 {
   "name": "object-property-names",
   "author": "Doray Hong",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "description": "Get any property names you need from a JavaScript object.",
   "main": "build/index.umd.js",
   "keywords": [
