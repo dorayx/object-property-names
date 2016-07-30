@@ -1,5 +1,7 @@
 # object-property-names
 
+[![npm version](https://badge.fury.io/js/object-property-names.svg)](https://badge.fury.io/js/object-property-names) [![Build Status](https://travis-ci.org/dorayx/object-property-names.svg?branch=master)](https://travis-ci.org/dorayx/object-property-names) [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![Dependency Status](https://david-dm.org/dorayx/object-property-names.svg)](https://david-dm.org/dorayx/object-property-names/)
+
 Get any property names (enumerable or not) you need from a JavaScript object.
 
 ## Description
