@@ -6,23 +6,23 @@ Get any property names (enumerable or not) you need from a JavaScript object.
 
 ## Description
 
-The properties will be found upon the object through its prototype chain to the top. During the prototype chain lookup, two rules, the type rule and the property rule, can be applied to ignore the specific types and properties.
+The properties will be found upon the object through its prototype chain to the top. During the prototype chain lookup, two rules - the type rule and the property rule, can apply to ignore the specified types and properties.
 
 ## Features
 
 - Tiny and No dependence
 - Flexible control
-- Support ES2015 Module and UMD
+- Support ES2015 Module and UMD (support [`jsnext:main`](https://github.com/jsforum/jsforum/issues/5))
 
 ## Type Rule & Property Rule
 
-The **Type Rule** is a list of the types to be ignored and the properties of those ignored types won't be returned. Please note that the type rule only applies to the prototype but not to the given object.
+The **Type Rule** is the list of the types to be ignored and the properties of those ignored types won't be returned. Please note that the type rule applies not only to the prototype but also to the given object.
 
-The types can be native or user-defined, such as `String`, `Function`, `Array` and your `SomeClass`. During the prototype chain lookup, any one of the types is found ignored then its upper prototype chain won't be sought. By default all the native types will be ignored.
+The types can be native or custom, such as `String`, `Function`, `Array` and your `SomeClass`. During the prototype chain lookup, any of the types is found ignored then its upper prototype chain won't be sought. By default all the native types will be ignored.
 
 The **Property Rule** is the list of the properties to be ignored.
 
-Those properties may be private, context-irrelative or non-enumerable. By default the property name prefixed with `_` will be regarded private and so ignored. The `contructor` property is also ignored.
+Those properties may be private, context-irrelative or non-enumerable. By default the property name prefixed with `_` will be regarded private and so ignored. The `constructor` property is also ignored.
 
 ## API
 
@@ -38,17 +38,18 @@ rules = {
 }
 ```
 
-The `rules` can also be any value that coerces to true or false. If the `rules` is evaluated truthy, the default rules of types and properties will apply, otherwise every property defined on the object through the prototype chain will be all returned.
+The `rules` can also be any value that coerces to a Boolean except for an Object. If the `rules` is evaluated truthy, the default rules will both apply, otherwise every property defined on the given object through the prototype chain will be all returned.
 
 ```
 > // null is translated to a false
+> // all the properties defined on the object are returned
 > getPropertyNamesByRules([], null)
 > ['length','constructor','toString','toLocaleString','join','pop','push','reverse','shift','unshift','slice','splice','sort','filter','forEach','some','every','map','indexOf','lastIndexOf','reduce','reduceRight','copyWithin','find','findIndex','fill','includes','entries','keys','concat']
 ```
 
-You can only override one of the rules: the type rule or the property rule, and the other one will be the corresponding default rule.
+You can simply override any of the rules, either the type rule or the property rule, and another one will be set to the corresponding default rule.
 
-If a *callback function* applies to any of the rules, the *callback* should return a Boolean (or any value that can be translated to a Boolean) and it is called upon the given object (*`this` will refer to the given object*) with two arguments: the property name and the given object.
+If a *callback function* applies to any of the rules, the *callback* should return a Boolean (or any value that can be translated to a Boolean) and it will be called upon the given object (*`this` will refer to the given object*) with two arguments: the property name and the given object.
 
 ```
 getPropertyNamesByRules(t4, {
@@ -56,7 +57,7 @@ getPropertyNamesByRules(t4, {
 })
 ```
 
-The code below create a rule to ignore the non-enumerable properties:
+The code below creates a rule to ignore the non-enumerable properties:
 
 ```
 getPropertyNamesByRules(t4, {
@@ -64,7 +65,7 @@ getPropertyNamesByRules(t4, {
 })
 ```
 
-If an array applies to any of the rules and any one of the array elements (strings, regexp ...) can be evaluated truthy then the rule will be applied.
+If an array is provided, only when any of the array elements (strings, regexps ...) can be evaluated truthy will the rule apply.
 
 ```
 getPropertyNamesByRules(t4, {
@@ -83,7 +84,7 @@ This function returns all the property names defined on the given object through
 
 ### `getNonNativePropertyNames(object)`
 
-This function returns the non-native property names.
+This function returns the non-native property names (not defined by JavaScript).
 
 ```
 > // Array is the native type in JavaScript
@@ -133,7 +134,7 @@ require(['ObjectPropertyNames'], function(ObjectPropertyNames) {
 })
 ```
 
-#### UMD: Browser Globals
+#### UMD: IIFE
 
 ```
 var getPropertyNamesByRules = window.ObjectPropertyNames. getPropertyNamesByRules
