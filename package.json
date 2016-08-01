@@ -11,11 +11,11 @@
   ],
   "scripts": {
     "test": "BABEL_ENV=test mocha --compilers js:babel-core/register --recursive",
-    "test-cov": "babel-node isparta cover --report html --report text node_modules/.bin/_mocha",
     "clean": "rm -rf build",
     "bundle": "BABEL_ENV=build rollup -c",
+    "lint": "eslint src lib test",
     "build": "npm run lint && npm run clean && npm run bundle",
-    "lint": "eslint src lib test"
+    "prepublish": "npm run build"
   },
   "dependencies": {},
   "devDependencies": {
@@ -29,7 +29,6 @@
     "eslint-config-standard": "^5.3.5",
     "eslint-plugin-promise": "^2.0.0",
     "eslint-plugin-standard": "^2.0.0",
-    "isparta": "^4.0.0",
     "mocha": "^2.3.4",
     "rollup-plugin-babel": "^2.6.1",
     "sinon": "^1.17.5",
